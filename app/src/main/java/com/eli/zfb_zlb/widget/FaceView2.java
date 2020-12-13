@@ -24,6 +24,10 @@ import eli.avocado.utils.DeviceUtils;
 public class FaceView2 extends View implements Runnable {
     private final String TAG = "FaceView";
     /**
+     * 设置默认转动角度0
+     */
+    float currentAngle = 0;
+    /**
      * 是否可以开始绘制了
      */
     private boolean mStart = false;
@@ -67,7 +71,6 @@ public class FaceView2 extends View implements Runnable {
      * 背景弧宽度
      */
     private float mBgArcWidth;
-
     /**
      * 圆心点坐标
      */
@@ -76,22 +79,14 @@ public class FaceView2 extends View implements Runnable {
      * 圆弧边界
      */
     private RectF mBgRectF = new RectF();
-
     /**
      * 开始角度
      */
     private int mStartAngle = 105;
-
     /**
      * 结束角度
      */
     private int mEndAngle = 330;
-
-    /**
-     * 设置默认转动角度0
-     */
-    float currentAngle = 0;
-
     /**
      * 圆弧背景画笔
      */

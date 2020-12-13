@@ -23,11 +23,11 @@
 
         <ImageView
             android:id="@+id/head_input"
-            android:layout_toRightOf="@id/head_locate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
+            android:layout_toRightOf="@id/head_locate"
             android:onClick="search"
             android:src="@drawable/zfb_1st_input" />
 
@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/zfb_foot"
         android:layout_below="@id/head_container">
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

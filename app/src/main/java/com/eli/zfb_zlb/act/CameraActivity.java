@@ -10,9 +10,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -35,40 +33,6 @@ public class CameraActivity extends BaseActivity {
     private boolean isPreview = false;
 
     private FaceView faceView;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Utils.setTransparentForWindow(this);
-
-        setContentView(R.layout.activity_camera);
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 0);
-        } else {
-            startPreview();
-        }
-
-        //初始化布局
-        ConstraintLayout constraintLayout = findViewById(R.id.cl_root);
-        faceView = findViewById(R.id.fv_title);
-
-        hintHandler.sendMessage(hintHandler.obtainMessage());
-
-        //添加布局
-        SurfaceView mSurfaceView = new SurfaceView(this);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-        params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
-        mSurfaceView.setLayoutParams(params);
-        constraintLayout.addView(mSurfaceView, 0);
-        //得到getHolder实例
-        SurfaceHolder mSurfaceHolder = mSurfaceView.getHolder();
-        mSurfaceHolder.setFormat(PixelFormat.TRANSPARENT);
-        // 添加 Surface 的 callback 接口
-        mSurfaceHolder.addCallback(mSurfaceCallback);
-    }
-
     Handler hintHandler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -144,6 +108,20 @@ public class CameraActivity extends BaseActivity {
     };
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Utils.setTransparentForWindow(this);
+
+        setContentView(R.layout.activity_camera);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
+        } else {
+            startPreview();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         if (camera != null) {
             if (isPreview) {//正在预览
@@ -171,6 +149,23 @@ public class CameraActivity extends BaseActivity {
     }
 
     private void startPreview() {
+        //初始化布局
+        ConstraintLayout constraintLayout = findViewById(R.id.cl_root);
+        faceView = findViewById(R.id.fv_title);
 
+        hintHandler.sendMessage(hintHandler.obtainMessage());
+
+        //添加布局
+        SurfaceView mSurfaceView = new SurfaceView(this);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+        mSurfaceView.setLayoutParams(params);
+        constraintLayout.addView(mSurfaceView, 0);
+        //得到getHolder实例
+        SurfaceHolder mSurfaceHolder = mSurfaceView.getHolder();
+        mSurfaceHolder.setFormat(PixelFormat.TRANSPARENT);
+        // 添加 Surface 的 callback 接口
+        mSurfaceHolder.addCallback(mSurfaceCallback);
     }
 }

@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FDFDFE">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="back"
         android:layout_margin="30dp"
+        android:onClick="back"
         android:src="@drawable/x_close" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_root"
-        android:layout_width="500dp"
-        android:layout_height="600dp"
-        android:layout_gravity="center">
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center_horizontal">
 
         <!--相机预览显示-->
         <com.eli.zfb_zlb.widget.FaceView
@@ -25,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:tip_text="请闭眼"
-            app:tip_text_size="20sp"/>
+            app:tip_text_size="20sp" />
 
         <!--界面提示信息-->
         <TextView

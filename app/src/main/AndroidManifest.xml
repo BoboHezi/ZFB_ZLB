@@ -10,18 +10,17 @@
         android:label="支付宝"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".act.MainActivity">
-        </activity>
+        <activity android:name=".act.MainActivity"></activity>
 
         <activity
             android:name=".act.SearchActivity"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
 
         <activity android:name=".act.ZlbHomeActivity" />
 
         <activity android:name=".act.VerifyActivity" />
 
-        <activity android:name=".act.CameraActivity" >
+        <activity android:name=".act.CameraActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

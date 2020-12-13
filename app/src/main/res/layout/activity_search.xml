@@ -6,8 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#f9f9f9">
+        android:background="#f9f9f9"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,8 +24,8 @@
                     android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#0000"
                     android:layout_gravity="center"
+                    android:background="#0000"
                     android:onClick="back"
                     android:src="@drawable/ic_baseline_arrow_back_ios_24" />
             </FrameLayout>
@@ -39,13 +39,13 @@
                     android:id="@+id/search_et"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/ed_bg"
-                    android:paddingHorizontal="10dp"
-                    android:hint="浙里办"
-                    android:drawablePadding="8dp"
                     android:drawableLeft="@drawable/visitor_titlebar_search"
                     android:drawableRight="@drawable/visitor_titlebar_voice"
-                    android:layout_gravity="center"/>
+                    android:drawablePadding="8dp"
+                    android:hint="浙里办"
+                    android:paddingHorizontal="10dp" />
             </FrameLayout>
 
             <TextView
@@ -55,16 +55,16 @@
                 android:layout_weight="3"
                 android:gravity="center"
                 android:onClick="search"
+                android:text="搜索"
                 android:textColor="#a000"
-                android:textSize="18sp"
-                android:text="搜索" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/search_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/zfb_search_bg"/>
+            android:src="@drawable/zfb_search_bg" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/result_list"

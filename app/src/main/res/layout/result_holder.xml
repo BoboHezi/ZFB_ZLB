@@ -9,8 +9,8 @@
         android:id="@+id/rst_image"
         android:layout_width="20dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/visitor_search_top"
         android:layout_marginStart="10dp"
+        android:src="@drawable/visitor_search_top"
         app:tint="#777" />
 
     <TextView
@@ -18,6 +18,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:textSize="20sp"
-        android:text="浙里办" />
+        android:text="浙里办"
+        android:textSize="20sp" />
 </LinearLayout>

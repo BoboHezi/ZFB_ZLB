@@ -26,6 +26,10 @@ import eli.avocado.utils.DeviceUtils;
 
 public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Runnable {
     private final String TAG = "FaceView";
+    /**
+     * 设置默认转动角度0
+     */
+    float currentAngle = 0;
     private SurfaceHolder mSurfaceHolder;
     /**
      * 是否可以开始绘制了
@@ -71,7 +75,6 @@ public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Run
      * 背景弧宽度
      */
     private float mBgArcWidth;
-
     /**
      * 圆心点坐标
      */
@@ -80,17 +83,14 @@ public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Run
      * 圆弧边界
      */
     private RectF mBgRectF = new RectF();
-
     /**
      * 开始角度
      */
     private int mStartAngle = 105;
-
     /**
      * 结束角度
      */
     private int mEndAngle = 330;
-
     /**
      * 圆弧背景画笔
      */
@@ -99,7 +99,6 @@ public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Run
      * 提示语画笔
      */
     private Paint mTextPaint;
-
     /**
      * 圆弧画笔
      */
@@ -108,12 +107,10 @@ public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Run
      * 渐变器
      */
     private SweepGradient mSweepGradient;
-
     /**
      * 是否开始
      */
     private boolean isRunning = true;
-
     /**
      * 是否后退
      */
@@ -122,11 +119,6 @@ public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Run
      * 绘制速度
      */
     private int speed = 5;
-
-    /**
-     * 设置默认转动角度0
-     */
-    float currentAngle = 0;
 
     public FaceView(Context context) {
         this(context, null);
