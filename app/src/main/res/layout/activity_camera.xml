@@ -9,15 +9,16 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
         android:onClick="back"
         android:src="@drawable/x_close" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_root"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="150dp"
+        android:layout_width="400dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="100dp"
         android:layout_gravity="center_horizontal">
 
         <!--相机预览显示-->
