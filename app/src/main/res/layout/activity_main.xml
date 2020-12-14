@@ -41,14 +41,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_above="@id/zfb_foot"
         android:layout_below="@id/head_container">
 
-        <FrameLayout
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/zfb_1st_bg" />
+            android:scaleType="fitStart"
+            android:src="@drawable/zfb_1st_bg" />
     </ScrollView>
 
     <ImageView
@@ -56,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:scaleType="fitEnd"
         android:src="@drawable/zfb_1st_foot" />
 
 </RelativeLayout>

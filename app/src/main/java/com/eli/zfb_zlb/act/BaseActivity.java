@@ -25,6 +25,8 @@ public class BaseActivity extends AppCompatActivity {
 
     private ProgressListener progressListener;
 
+    protected int progressTime;
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -35,7 +37,9 @@ public class BaseActivity extends AppCompatActivity {
         haveProgressbar = progressBar != null;
 
         if (haveProgressbar && !progressFinished) {
-            int totalTime = (int) (100 + Math.random() * 500);
+            if (progressTime <= 0) {
+                progressTime = (int) (100 + Math.random() * 500);
+            }
             progressBar.setProgress(0);
             onProgress(0);
             progressFinished = true;
@@ -55,7 +59,7 @@ public class BaseActivity extends AppCompatActivity {
                     });
                 }
             };
-            timer.schedule(timerTask, 0, totalTime / 5);
+            timer.schedule(timerTask, 0, progressTime / 5);
         }
     }
 

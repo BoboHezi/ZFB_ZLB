@@ -2,6 +2,8 @@ package com.eli.zfb_zlb.act;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -20,6 +22,18 @@ public class ZlbHomeActivity extends BaseActivity {
     }
 
     public void marriage(View v) {
-        startActivity(new Intent(this, VerifyActivity.class));
+        startActivityForResult(new Intent(this, VerifyActivity.class), 99);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.i("elifli", "ZlbHomeActivity requestCode: " + requestCode + ", resultCode: " + resultCode);
+        if (requestCode == 99 && resultCode == 106) {
+            new Handler().postDelayed(() -> {
+                startActivity(new Intent(this, MarriageActivity.class));
+            }, 1000);
+        }
     }
 }

@@ -3,7 +3,6 @@ package com.eli.zfb_zlb.util;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -24,12 +23,6 @@ public class VerifyConfirmActivity extends BaseActivity {
         userText.postDelayed(() -> {
             startActivityForResult(new Intent(this, CameraActivity.class), 101);
         }, 1000);
-
-        setProgressListener(progress -> {
-            if (progress == 100) {
-                findViewById(R.id.container).setVisibility(View.VISIBLE);
-            }
-        });
     }
 
     @Override
@@ -37,7 +30,8 @@ public class VerifyConfirmActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         Log.i("elifli", "VerifyConfirmActivity requestCode: " + requestCode + ", resultCode: " + resultCode);
-        if (requestCode == 101 && resultCode == 102) {
+        if (requestCode == 101 && resultCode == 104) {
+            setResult(105);
             finish();
         }
     }

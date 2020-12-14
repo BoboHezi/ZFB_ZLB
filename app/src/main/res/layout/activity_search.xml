@@ -64,10 +64,12 @@
             android:id="@+id/search_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:scaleType="fitStart"
             android:src="@drawable/zfb_search_bg" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/result_list"
+            android:scaleType="fitStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

@@ -164,7 +164,7 @@ public class CameraActivity extends BaseActivity {
 
         hintText.postDelayed(() -> {
             stopPreview();
-            startActivityForResult(new Intent(this, MarriageActivity.class), 102);
+            startActivityForResult(new Intent(this, VerifySuccessActivity.class), 102);
         }, 5000);
 
         hintHandler.sendMessage(hintHandler.obtainMessage());
@@ -204,7 +204,7 @@ public class CameraActivity extends BaseActivity {
 
         Log.i("elifli", "CameraActivity requestCode: " + requestCode + ", resultCode: " + resultCode);
         if (requestCode == 102 && resultCode == 103) {
-            setResult(102);
+            setResult(104);
             finish();
         }
     }

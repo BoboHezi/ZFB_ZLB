@@ -150,6 +150,8 @@ public class SearchActivity extends BaseActivity {
             SpannableStringBuilder sb = new SpannableStringBuilder(text);
             sb.setSpan(new ForegroundColorSpan(0xff1d77f2), 0, mInput.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             rstText.setText(sb);
+
+            holder.itemView.setOnClickListener(v -> search(v));
         }
 
         @Override

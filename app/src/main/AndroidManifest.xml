@@ -30,6 +30,8 @@
         <activity android:name=".act.CameraActivity"></activity>
 
         <activity android:name=".act.MarriageActivity"></activity>
+
+        <activity android:name=".act.VerifySuccessActivity" />
     </application>
 
 </manifest>

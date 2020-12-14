@@ -7,9 +7,10 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/header_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#0E85E1"
+        android:background="#fff"
         android:gravity="center_vertical"
         android:onClick="back"
         android:paddingHorizontal="20dp"
@@ -19,13 +20,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_arrow_back_ios_24"
-            app:tint="#fff" />
+            app:tint="#000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="身份验证"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="17sp" />
 
         <View
@@ -33,16 +34,22 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
+    <include layout="@layout/progress_bar" />
+
     <ImageView
+        android:id="@+id/verity_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:scaleType="fitStart"
         android:src="@drawable/verity_center" />
 
     <ImageView
+        android:id="@+id/verify_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="startVerify"
         android:scaleType="fitStart"
+        android:visibility="gone"
         android:src="@drawable/verity_head_acce" />
 </LinearLayout>
