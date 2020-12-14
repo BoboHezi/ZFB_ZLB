@@ -16,4 +16,10 @@ public class MarriageActivity extends BaseActivity {
 
         setContentView(R.layout.activity_marriage);
     }
+
+    @Override
+    public void finish() {
+        setResult(103);
+        super.finish();
+    }
 }

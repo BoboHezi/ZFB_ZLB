@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".act.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -19,17 +23,13 @@
 
         <activity android:name=".act.ZlbHomeActivity" />
 
-        <activity android:name=".act.VerifyActivity" />
+        <activity android:name=".act.VerifyActivity"></activity>
 
-        <activity android:name=".act.CameraActivity">
-        </activity>
+        <activity android:name=".util.VerifyConfirmActivity"></activity>
 
-        <activity android:name=".act.MarriageActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".act.CameraActivity"></activity>
+
+        <activity android:name=".act.MarriageActivity"></activity>
     </application>
 
 </manifest>

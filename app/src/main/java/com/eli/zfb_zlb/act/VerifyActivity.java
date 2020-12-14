@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.eli.zfb_zlb.R;
 import com.eli.zfb_zlb.util.Utils;
+import com.eli.zfb_zlb.util.VerifyConfirmActivity;
 
 public class VerifyActivity extends BaseActivity {
 
@@ -20,6 +21,6 @@ public class VerifyActivity extends BaseActivity {
     }
 
     public void startVerify(View v) {
-        startActivity(new Intent(this, CameraActivity.class));
+        startActivity(new Intent(this, VerifyConfirmActivity.class));
     }
 }

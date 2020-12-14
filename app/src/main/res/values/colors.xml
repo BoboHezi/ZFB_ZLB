@@ -2,7 +2,10 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#DA0392</color>
 
-    <color name="circleBg">#B300FF</color>
+    <color name="circleBg">#dee5eb</color>
+    <color name="circleStart">#53A9E4</color>
+    <color name="circleEnd">#0886dd</color>
+    <color name="textPanelBg">#5000</color>
 </resources>

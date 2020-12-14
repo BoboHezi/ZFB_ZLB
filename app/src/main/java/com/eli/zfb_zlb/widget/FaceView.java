@@ -160,13 +160,13 @@ public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Run
         setKeepScreenOn(true);
 
         //初始化值
-        margin = DeviceUtils.dp2px(context, 60);
+        margin = DeviceUtils.dp2px(context, 80);
         mBgArcWidth = DeviceUtils.dp2px(context, 5);
 
         //初始化画笔
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setColor(getResources().getColor(R.color.colorAccent));
+        mPaint.setColor(getResources().getColor(R.color.textPanelBg));
         mPaint.setStyle(Paint.Style.FILL);
 
         //绘制文字画笔
@@ -245,7 +245,10 @@ public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Run
         mBgRectF.bottom = mCenterPoint.y + mRadius + mBgArcWidth / 2;
 
         //进度条颜色 -mStartAngle将位置便宜到原处
-        mSweepGradient = new SweepGradient(mCenterPoint.x - mStartAngle, mCenterPoint.y - mStartAngle, getResources().getColor(R.color.colorPrimary), getResources().getColor(R.color.colorPrimaryDark));
+        mSweepGradient = new SweepGradient(mCenterPoint.x - mStartAngle,
+                mCenterPoint.y - mStartAngle,
+                getResources().getColor(R.color.circleStart),
+                getResources().getColor(R.color.circleEnd));
     }
 
     @Override
@@ -268,7 +271,7 @@ public class FaceView extends SurfaceView implements SurfaceHolder.Callback, Run
             //绘制画布内容
             drawContent(canvas);
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(TAG, "drawView: ", e);
         } finally {
             if (canvas != null) {
                 //释放canvas锁，并且显示视图

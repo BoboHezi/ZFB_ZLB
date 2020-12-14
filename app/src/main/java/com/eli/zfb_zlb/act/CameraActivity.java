@@ -1,6 +1,7 @@
 package com.eli.zfb_zlb.act;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
@@ -10,8 +11,10 @@ import android.os.Message;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,7 +44,7 @@ public class CameraActivity extends BaseActivity {
             switch (i) {
                 case 1:
                     faceView.resetPositionStart();
-                    faceView.updateTipsInfo("没有检测人脸");
+                    faceView.updateTipsInfo("没有检测到人脸");
                     break;
                 case 2:
                     faceView.backAnimator();
@@ -49,7 +52,7 @@ public class CameraActivity extends BaseActivity {
                     break;
                 case 3:
                     faceView.pauseAnimator();
-                    faceView.updateTipsInfo(" 眨眨眼");
+                    faceView.updateTipsInfo("眨眨眼");
                     break;
                 case 4:
                     faceView.startAnimator();
@@ -62,7 +65,9 @@ public class CameraActivity extends BaseActivity {
             sendMessageDelayed(this.obtainMessage(), 2000);
         }
     };
-
+    private TextView hintText;
+    private SurfaceView mSurfaceView;
+    private SurfaceHolder mSurfaceHolder;
     private SurfaceHolder.Callback mSurfaceCallback = new SurfaceHolder.Callback() {
         @Override
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
@@ -152,20 +157,55 @@ public class CameraActivity extends BaseActivity {
         //初始化布局
         ConstraintLayout constraintLayout = findViewById(R.id.cl_root);
         faceView = findViewById(R.id.fv_title);
+        hintText = findViewById(R.id.tv_tip);
+        hintText.postDelayed(() -> {
+            hintText.setVisibility(View.GONE);
+        }, 1000);
+
+        hintText.postDelayed(() -> {
+            stopPreview();
+            startActivityForResult(new Intent(this, MarriageActivity.class), 102);
+        }, 5000);
 
         hintHandler.sendMessage(hintHandler.obtainMessage());
 
         //添加布局
-        SurfaceView mSurfaceView = new SurfaceView(this);
+        mSurfaceView = new SurfaceView(this);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
         mSurfaceView.setLayoutParams(params);
         constraintLayout.addView(mSurfaceView, 0);
         //得到getHolder实例
-        SurfaceHolder mSurfaceHolder = mSurfaceView.getHolder();
+        mSurfaceHolder = mSurfaceView.getHolder();
         mSurfaceHolder.setFormat(PixelFormat.TRANSPARENT);
         // 添加 Surface 的 callback 接口
         mSurfaceHolder.addCallback(mSurfaceCallback);
+    }
+
+    private void stopPreview() {
+        hintHandler.removeMessages(0);
+        faceView.finnishAnimator();
+        if (camera != null) {
+            if (isPreview) {//正在预览
+                try {
+                    camera.stopPreview();
+                    camera.release();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.i("elifli", "CameraActivity requestCode: " + requestCode + ", resultCode: " + resultCode);
+        if (requestCode == 102 && resultCode == 103) {
+            setResult(102);
+            finish();
+        }
     }
 }
