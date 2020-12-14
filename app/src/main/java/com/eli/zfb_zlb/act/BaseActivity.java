@@ -13,19 +13,13 @@ import java.util.TimerTask;
 
 public class BaseActivity extends AppCompatActivity {
 
-    private ProgressBar progressBar;
-
-    private Timer timer;
-
-    private boolean haveProgressbar = true;
-
-    private boolean progressFinished;
-
-    private boolean activityFinished;
-
-    private ProgressListener progressListener;
-
     protected int progressTime;
+    private ProgressBar progressBar;
+    private Timer timer;
+    private boolean haveProgressbar = true;
+    private boolean progressFinished;
+    private boolean activityFinished;
+    private ProgressListener progressListener;
 
     @Override
     protected void onResume() {
@@ -48,14 +42,15 @@ public class BaseActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     runOnUiThread(() -> {
+                        progressBar.setProgress(progressBar.getProgress() + 5);
                         if (progressBar.getProgress() >= 100) {
                             timer.cancel();
                             timer.purge();
                             progressBar.setVisibility(View.GONE);
                             onProgress(100);
+                        } else {
+                            onProgress(progressBar.getProgress());
                         }
-                        progressBar.setProgress(progressBar.getProgress() + 5);
-                        onProgress(progressBar.getProgress());
                     });
                 }
             };

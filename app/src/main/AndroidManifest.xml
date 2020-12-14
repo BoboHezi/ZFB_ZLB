@@ -25,13 +25,15 @@
 
         <activity android:name=".act.VerifyActivity"></activity>
 
-        <activity android:name=".util.VerifyConfirmActivity"></activity>
+        <activity android:name=".act.VerifyConfirmActivity"></activity>
 
         <activity android:name=".act.CameraActivity"></activity>
 
         <activity android:name=".act.MarriageActivity"></activity>
 
-        <activity android:name=".act.VerifySuccessActivity" />
+        <activity android:name=".act.VerifySuccessActivity"></activity>
+
+        <activity android:name=".act.TestActivity"></activity>
     </application>
 
 </manifest>

@@ -40,9 +40,9 @@
         android:id="@+id/verity_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:scaleType="fitStart"
-        android:src="@drawable/verity_center" />
+        android:src="@drawable/verity_center"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/verify_confirm"
@@ -50,6 +50,6 @@
         android:layout_height="wrap_content"
         android:onClick="startVerify"
         android:scaleType="fitStart"
-        android:visibility="gone"
-        android:src="@drawable/verity_head_acce" />
+        android:src="@drawable/verity_head_acce"
+        android:visibility="gone" />
 </LinearLayout>

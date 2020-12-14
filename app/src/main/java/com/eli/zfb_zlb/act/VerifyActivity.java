@@ -15,7 +15,6 @@ import androidx.annotation.RequiresApi;
 
 import com.eli.zfb_zlb.R;
 import com.eli.zfb_zlb.util.Utils;
-import com.eli.zfb_zlb.util.VerifyConfirmActivity;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class VerifyActivity extends BaseActivity {

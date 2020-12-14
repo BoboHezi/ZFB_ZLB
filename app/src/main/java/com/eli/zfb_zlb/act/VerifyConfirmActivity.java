@@ -1,4 +1,4 @@
-package com.eli.zfb_zlb.util;
+package com.eli.zfb_zlb.act;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.eli.zfb_zlb.R;
-import com.eli.zfb_zlb.act.BaseActivity;
-import com.eli.zfb_zlb.act.CameraActivity;
 
 public class VerifyConfirmActivity extends BaseActivity {
 

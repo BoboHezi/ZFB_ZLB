@@ -36,4 +36,5 @@ dependencies {
 
     implementation 'com.github.eli:AvocadoUtils:0.0.1'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'net.frakbot:jumpingbeans:1.3.0'
 }
